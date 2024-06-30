@@ -51,6 +51,7 @@ type ScheduleRepoI interface {
 	GetList(ctx context.Context, req *ct.GetListScheduleRequest) (*ct.GetListScheduleResponse, error)
 	Update(ctx context.Context, req *ct.UpdateScheduleRequest) (*ct.GetScheduleResponse, error)
 	Delete(ctx context.Context, req *ct.ScheduleID) (*ct.ScheduleEmpty, error)
+	GetListMonth(ctx context.Context, req *ct.GetListScheduleMonthRequest) (*ct.GetListScheduleResponse, error)
 }
 
 type TaskRepoI interface {

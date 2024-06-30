@@ -822,6 +822,52 @@ const docTemplate = `{
             }
         },
         "/api/v1/schedules": {
+            "post": {
+                "description": "Create a new Schedule entry",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Schedule"
+                ],
+                "summary": "Create a new Schedule",
+                "parameters": [
+                    {
+                        "description": "Schedule creation request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/education_management_service.CreateScheduleRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/education_management_service.ScheduleResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request body",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/schedules/list": {
             "get": {
                 "description": "Get a list of Schedule entries with pagination and search",
                 "produces": [
@@ -871,35 +917,43 @@ const docTemplate = `{
                         }
                     }
                 }
-            },
-            "post": {
-                "description": "Create a new Schedule entry",
-                "consumes": [
-                    "application/json"
-                ],
+            }
+        },
+        "/api/v1/schedules/month": {
+            "get": {
+                "description": "Get a list of Schedule entries with pagination and search",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "Schedule"
                 ],
-                "summary": "Create a new Schedule",
+                "summary": "Get a list of Schedules",
                 "parameters": [
                     {
-                        "description": "Schedule creation request",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/education_management_service.CreateScheduleRequest"
-                        }
+                        "type": "integer",
+                        "description": "Limit per page",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Search query",
+                        "name": "search",
+                        "in": "query"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/education_management_service.ScheduleResponse"
+                            "$ref": "#/definitions/education_management_service.GetListScheduleResponse"
                         }
                     },
                     "400": {

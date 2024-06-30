@@ -172,3 +172,123 @@ func (r *scheduleRepo) Delete(ctx context.Context, req *ct.ScheduleID) (*ct.Sche
     resp.Msg = "Successful"
     return resp, nil
 }
+
+
+
+// func (r *scheduleRepo) GetListMonth(ctx context.Context, req *ct.GetListScheduleRequest) (*ct.GetListScheduleResponse, error) {
+//     var resp ct.GetListScheduleResponse
+//     var created_at, updated_at, deleted_at sql.NullString
+
+//     // Calculate OFFSET based on page and limit
+//     offset := (req.Page - 1) * req.Limit
+
+//     // Initialize filter string
+//     filter := ""
+
+//     // Add search condition if req.Search is not empty
+//     if req.Search != "" {
+//         filter = fmt.Sprintf(`
+//             WHERE (lesson ILIKE '%%%v%%') AND deleted_at IS NULL
+//         `, req.Search)
+//     } else {
+//         filter = " WHERE deleted_at IS NULL "
+//     }
+
+//     // Construct the final query with filter, limit, and offset
+//     query := fmt.Sprintf(`
+//         SELECT id, journalId, date, startTime, endTime, lesson, created_at, updated_at, deleted_at
+//         FROM schedule
+//         %s
+//         LIMIT $1 OFFSET $2
+//     `, filter)
+
+//     // Execute the query
+//     rows, err := r.db.Query(ctx, query, req.Limit, offset)
+//     if err != nil {
+//         log.Println("error while getting schedule list:", err)
+//         return nil, err
+//     }
+//     defer rows.Close()
+
+//     // Iterate over the rows and populate response
+//     for rows.Next() {
+//         var schedule ct.GetScheduleResponse
+//         err := rows.Scan(&schedule.Id, &schedule.JournalId, &schedule.Date, &schedule.StartTime, &schedule.EndTime, &schedule.Lesson,
+//             &created_at, &updated_at, &deleted_at)
+//         if err != nil {
+//             log.Println("error while scanning schedule row:", err)
+//             return nil, err
+//         }
+//         schedule.CreatedAt = created_at.String
+//         schedule.UpdatedAt = updated_at.String
+//         schedule.DeletedAt = deleted_at.String
+//         resp.Schedules = append(resp.Schedules, &schedule)
+//     }
+//     if err := rows.Err(); err != nil {
+//         log.Println("error after iterating over schedule rows:", err)
+//         return nil, err
+//     }
+//     return &resp, nil
+// }
+
+func (r *scheduleRepo) GetListMonth(ctx context.Context, req *ct.GetListScheduleMonthRequest) (*ct.GetListScheduleResponse, error) {
+    var resp ct.GetListScheduleResponse
+    var created_at, updated_at, deleted_at sql.NullString
+
+    // Calculate OFFSET based on page and limit
+    offset := (req.Page - 1) * req.Limit
+
+    // Initialize filter string
+    filter := ""
+
+    // Get the current date and one month ahead date
+    currentDate := time.Now()
+    oneMonthAhead := currentDate.AddDate(0, 1, 0)
+
+    // Add search condition if req.Search is not empty
+    if req.Search != "" {
+        filter = fmt.Sprintf(`
+            WHERE (lesson ILIKE '%%%v%%') AND date BETWEEN '%s' AND '%s' AND deleted_at IS NULL
+        `, req.Search, currentDate.Format("2006-01-02"), oneMonthAhead.Format("2006-01-02"))
+    } else {
+        filter = fmt.Sprintf(`
+            WHERE date BETWEEN '%s' AND '%s' AND deleted_at IS NULL
+        `, currentDate.Format("2006-01-02"), oneMonthAhead.Format("2006-01-02"))
+    }
+
+    // Construct the final query with filter, limit, and offset
+    query := fmt.Sprintf(`
+        SELECT id, journalId, date, startTime, endTime, lesson, created_at, updated_at, deleted_at
+        FROM schedule
+        %s
+        LIMIT $1 OFFSET $2
+    `, filter)
+
+    // Execute the query
+    rows, err := r.db.Query(ctx, query, req.Limit, offset)
+    if err != nil {
+        log.Println("error while getting schedule list:", err)
+        return nil, err
+    }
+    defer rows.Close()
+
+    // Iterate over the rows and populate response
+    for rows.Next() {
+        var schedule ct.GetScheduleResponse
+        err := rows.Scan(&schedule.Id, &schedule.JournalId, &schedule.Date, &schedule.StartTime, &schedule.EndTime, &schedule.Lesson,
+            &created_at, &updated_at, &deleted_at)
+        if err != nil {
+            log.Println("error while scanning schedule row:", err)
+            return nil, err
+        }
+        schedule.CreatedAt = created_at.String
+        schedule.UpdatedAt = updated_at.String
+        schedule.DeletedAt = deleted_at.String
+        resp.Schedules = append(resp.Schedules, &schedule)
+    }
+    if err := rows.Err(); err != nil {
+        log.Println("error after iterating over schedule rows:", err)
+        return nil, err
+    }
+    return &resp, nil
+}

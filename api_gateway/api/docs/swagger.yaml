@@ -1815,39 +1815,6 @@ paths:
       tags:
       - Jurnal
   /api/v1/schedules:
-    get:
-      description: Get a list of Schedule entries with pagination and search
-      parameters:
-      - description: Limit per page
-        in: query
-        name: limit
-        type: integer
-      - description: Page number
-        in: query
-        name: page
-        type: integer
-      - description: Search query
-        in: query
-        name: search
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/education_management_service.GetListScheduleResponse'
-        "400":
-          description: Invalid request body
-          schema:
-            $ref: '#/definitions/models.ResponseError'
-        "500":
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/models.ResponseError'
-      summary: Get a list of Schedules
-      tags:
-      - Schedule
     post:
       consumes:
       - application/json
@@ -1962,6 +1929,74 @@ paths:
           schema:
             $ref: '#/definitions/models.ResponseError'
       summary: Update a Schedule by ID
+      tags:
+      - Schedule
+  /api/v1/schedules/list:
+    get:
+      description: Get a list of Schedule entries with pagination and search
+      parameters:
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Search query
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListScheduleResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a list of Schedules
+      tags:
+      - Schedule
+  /api/v1/schedules/month:
+    get:
+      description: Get a list of Schedule entries with pagination and search
+      parameters:
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Search query
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListScheduleResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a list of Schedules
       tags:
       - Schedule
   /branch/{id}:

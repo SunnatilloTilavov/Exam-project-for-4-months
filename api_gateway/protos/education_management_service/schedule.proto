@@ -10,6 +10,7 @@ service ScheduleService {
     rpc Create(CreateScheduleRequest) returns (ScheduleResponse) {}
     rpc Update(UpdateScheduleRequest) returns (GetScheduleResponse) {}
     rpc Delete(ScheduleID) returns (ScheduleEmpty) {}
+    rpc GetListMonth(GetListScheduleMonthRequest) returns (GetListScheduleResponse) {}
 }
 
 message Schedule {
@@ -79,6 +80,11 @@ message GetListScheduleRequest {
     string search = 3;
 }
 
+message GetListScheduleMonthRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
 message GetListScheduleResponse {
     int64 count = 1;
     repeated GetScheduleResponse schedules = 2;

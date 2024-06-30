@@ -367,6 +367,7 @@ func (r *administrationRepo) GetReportList(ctx context.Context, req *ct.GetRepor
 
 		resp.Getadministrations = append(resp.Getadministrations, &administration)
 	}
+	
 	if err := rows.Err(); err != nil {
 		log.Println("error after iterating over administration rows:", err)
 		return nil, err

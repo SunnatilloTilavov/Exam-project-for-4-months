@@ -69,7 +69,7 @@ func (h *handler) GetScheduleByID(c *gin.Context) {
 // @Success 200 {object} education_management_service.GetListScheduleResponse
 // @Failure 400 {object} models.ResponseError "Invalid request body"
 // @Failure 500 {object} models.ResponseError "Internal server error"
-// @Router /api/v1/schedules [get]
+// @Router /api/v1/schedules/list [get]
 func (h *handler) GetListSchedule(c *gin.Context) {
 	limitStr := c.Query("limit")
 	limit, err := strconv.Atoi(limitStr)
@@ -145,6 +145,49 @@ func (h *handler) DeleteSchedule(c *gin.Context) {
 	req := &education_management_service.ScheduleID{Id: id}
 
 	resp, err := h.grpcClient.ScheduleService().Delete(c, req)
+	if err != nil {
+		handleGrpcErrWithDescription(c, h.log, err, "internal server error")
+		return
+	}
+
+	c.JSON(http.StatusOK, resp)
+}
+
+
+// GetListSchedule handles the RPC GetList
+// @Summary Get a list of Schedules
+// @Description Get a list of Schedule entries with pagination and search
+// @Produce json
+// @Tags Schedule
+// @Param limit query int false "Limit per page"
+// @Param page query int false "Page number"
+// @Param search query string false "Search query"
+// @Success 200 {object} education_management_service.GetListScheduleResponse
+// @Failure 400 {object} models.ResponseError "Invalid request body"
+// @Failure 500 {object} models.ResponseError "Internal server error"
+// @Router /api/v1/schedules/month [get]
+func (h *handler) GetListScheduleMonth(c *gin.Context) {
+	limitStr := c.Query("limit")
+	limit, err := strconv.Atoi(limitStr)
+	if err != nil {
+		handleGrpcErrWithDescription(c, h.log, err, "invalid limit parameter")
+		return
+	}
+
+	pageStr := c.Query("page")
+	page, err := strconv.Atoi(pageStr)
+	if err != nil {
+		handleGrpcErrWithDescription(c, h.log, err, "invalid page parameter")
+		return
+	}
+
+	req := education_management_service.GetListScheduleMonthRequest{
+		Limit:  int64(limit),
+		Page:   int64(page),
+		Search: c.Query("search"),
+	}
+
+	resp, err := h.grpcClient.ScheduleService().GetListMonth(c, &req)
 	if err != nil {
 		handleGrpcErrWithDescription(c, h.log, err, "internal server error")
 		return

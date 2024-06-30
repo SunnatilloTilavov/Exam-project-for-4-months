@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ScheduleService_GetByID_FullMethodName = "/education_management_service.ScheduleService/GetByID"
-	ScheduleService_GetList_FullMethodName = "/education_management_service.ScheduleService/GetList"
-	ScheduleService_Create_FullMethodName  = "/education_management_service.ScheduleService/Create"
-	ScheduleService_Update_FullMethodName  = "/education_management_service.ScheduleService/Update"
-	ScheduleService_Delete_FullMethodName  = "/education_management_service.ScheduleService/Delete"
+	ScheduleService_GetByID_FullMethodName      = "/education_management_service.ScheduleService/GetByID"
+	ScheduleService_GetList_FullMethodName      = "/education_management_service.ScheduleService/GetList"
+	ScheduleService_Create_FullMethodName       = "/education_management_service.ScheduleService/Create"
+	ScheduleService_Update_FullMethodName       = "/education_management_service.ScheduleService/Update"
+	ScheduleService_Delete_FullMethodName       = "/education_management_service.ScheduleService/Delete"
+	ScheduleService_GetListMonth_FullMethodName = "/education_management_service.ScheduleService/GetListMonth"
 )
 
 // ScheduleServiceClient is the client API for ScheduleService service.
@@ -35,6 +36,7 @@ type ScheduleServiceClient interface {
 	Create(ctx context.Context, in *CreateScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error)
 	Update(ctx context.Context, in *UpdateScheduleRequest, opts ...grpc.CallOption) (*GetScheduleResponse, error)
 	Delete(ctx context.Context, in *ScheduleID, opts ...grpc.CallOption) (*ScheduleEmpty, error)
+	GetListMonth(ctx context.Context, in *GetListScheduleMonthRequest, opts ...grpc.CallOption) (*GetListScheduleResponse, error)
 }
 
 type scheduleServiceClient struct {
@@ -90,6 +92,15 @@ func (c *scheduleServiceClient) Delete(ctx context.Context, in *ScheduleID, opts
 	return out, nil
 }
 
+func (c *scheduleServiceClient) GetListMonth(ctx context.Context, in *GetListScheduleMonthRequest, opts ...grpc.CallOption) (*GetListScheduleResponse, error) {
+	out := new(GetListScheduleResponse)
+	err := c.cc.Invoke(ctx, ScheduleService_GetListMonth_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ScheduleServiceServer is the server API for ScheduleService service.
 // All implementations must embed UnimplementedScheduleServiceServer
 // for forward compatibility
@@ -99,6 +110,7 @@ type ScheduleServiceServer interface {
 	Create(context.Context, *CreateScheduleRequest) (*ScheduleResponse, error)
 	Update(context.Context, *UpdateScheduleRequest) (*GetScheduleResponse, error)
 	Delete(context.Context, *ScheduleID) (*ScheduleEmpty, error)
+	GetListMonth(context.Context, *GetListScheduleMonthRequest) (*GetListScheduleResponse, error)
 	mustEmbedUnimplementedScheduleServiceServer()
 }
 
@@ -120,6 +132,9 @@ func (UnimplementedScheduleServiceServer) Update(context.Context, *UpdateSchedul
 }
 func (UnimplementedScheduleServiceServer) Delete(context.Context, *ScheduleID) (*ScheduleEmpty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedScheduleServiceServer) GetListMonth(context.Context, *GetListScheduleMonthRequest) (*GetListScheduleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetListMonth not implemented")
 }
 func (UnimplementedScheduleServiceServer) mustEmbedUnimplementedScheduleServiceServer() {}
 
@@ -224,6 +239,24 @@ func _ScheduleService_Delete_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ScheduleService_GetListMonth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetListScheduleMonthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleServiceServer).GetListMonth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleService_GetListMonth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleServiceServer).GetListMonth(ctx, req.(*GetListScheduleMonthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ScheduleService_ServiceDesc is the grpc.ServiceDesc for ScheduleService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -250,6 +283,10 @@ var ScheduleService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Delete",
 			Handler:    _ScheduleService_Delete_Handler,
+		},
+		{
+			MethodName: "GetListMonth",
+			Handler:    _ScheduleService_GetListMonth_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

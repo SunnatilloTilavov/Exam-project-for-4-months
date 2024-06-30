@@ -84,3 +84,15 @@ func (s *ScheduleService) Delete(ctx context.Context, req *education_management_
 
 	return resp, nil
 }
+
+func (s *ScheduleService) GetListMonth(ctx context.Context, req *education_management_service.GetListScheduleMonthRequest) (*education_management_service.GetListScheduleResponse, error) {
+	s.log.Info("---GetScheduleList--->>>", logger.Any("req", req))
+
+	resp, err := s.strg.Schedule().GetListMonth(ctx, req)
+	if err != nil {
+		s.log.Error("---GetScheduleList--->>>", logger.Error(err))
+		return &education_management_service.GetListScheduleResponse{}, err
+	}
+
+	return resp, nil
+}

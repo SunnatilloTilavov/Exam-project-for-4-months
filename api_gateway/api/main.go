@@ -129,6 +129,8 @@ func New(cnf Config) *gin.Engine {
 	r.GET("/api/v1/schedules/list", handler.GetListSchedule)
 	r.PUT("/api/v1/schedules/:id", handler.UpdateSchedule)
 	r.DELETE("/api/v1/schedules/:id", handler.DeleteSchedule)
+	r.GET("/api/v1/schedules/month", handler.GetListScheduleMonth)
+ 
 
 	// Group endpoints
 	r.POST("/api/v1/groups", handler.CreateGroup)
@@ -167,6 +169,7 @@ func New(cnf Config) *gin.Engine {
 	r.GET("/teacher/report/list", handler.GetReportListTeacher)
 	r.GET("/supportteacher/report/list", handler.GetReportListSupportTeacher)
 	r.GET("/student/report/list", handler.GetReportListStudent)
+	
 	
 	// Swagger endpoints
 	url := ginSwagger.URL("swagger/doc.json") // The url pointing to API definition

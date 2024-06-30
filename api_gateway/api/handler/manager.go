@@ -2,6 +2,7 @@ package handler
 
 import (
 	"api_gateway/genproto/user_service"
+	"api_gateway/api/helpers"
 	"net/http"
 	"strconv"
 	"github.com/gin-gonic/gin"
@@ -33,6 +34,16 @@ func (h *handler) CreateManager(c *gin.Context) {
 
 	if err := c.ShouldBindJSON(&req); err != nil {
 		handleGrpcErrWithDescription(c, h.log, err, "invalid request body")
+		return
+	}
+
+	if err := helpers.ValidatePhone(req.Phone); err != nil {
+		handleGrpcErrWithDescription(c, h.log, err, "error while validating phone number"+req.Phone)
+		return
+	}
+
+	if err := helpers.ValidatePassword(req.Password); err != nil {
+		handleGrpcErrWithDescription(c, h.log, err, "error while validating password"+req.Phone)
 		return
 	}
 
