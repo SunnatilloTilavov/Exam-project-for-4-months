@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service JurnalService {
+    rpc GetByID(JurnalID) returns (GetJurnalResponse) {}
+    rpc GetList(GetListJurnalRequest) returns (GetListJurnalResponse) {}
+    rpc Create(CreateJurnalRequest) returns (JurnalResponse) {}
+    rpc Update(UpdateJurnalRequest) returns (GetJurnalResponse) {}
+    rpc Delete(JurnalID) returns (JurnalEmpty) {}
+    rpc GetByIDStudent(GroupId) returns (GetJurnalResponse) {}
+
+    
+}
+
+message GroupId {
+    string id = 1;
+}
+
+
+message Jurnal {
+    string id = 1;
+    string groupId = 2;
+    string fromDate = 3;
+    string toDate = 4;
+    int32 studentsCount = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message JurnalEmpty {
+    string msg = 1;
+}
+
+message JurnalID {
+    string id = 1;
+}
+
+message CreateJurnalRequest {
+    string groupId = 1;
+    string fromDate = 2;
+    string toDate = 3;
+    int32 studentsCount = 4;
+}
+
+message JurnalResponse {
+    string id = 1;
+    string groupId = 2;
+    string fromDate = 3;
+    string toDate = 4;
+    int32 studentsCount = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message UpdateJurnalRequest {
+    string id = 1;
+    string groupId = 2;
+    string fromDate = 3;
+    string toDate = 4;
+    int32 studentsCount = 5;
+}
+
+message GetJurnalResponse {
+    string id = 1;
+    string groupId = 2;
+    string fromDate = 3;
+    string toDate = 4;
+    int32 studentsCount = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message GetListJurnalRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListJurnalResponse {
+    int64 count = 1;
+    repeated GetJurnalResponse Jurnals = 2;
+}

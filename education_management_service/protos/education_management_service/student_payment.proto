@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service StudentPaymentService {
+    rpc GetByID(StudentPaymentID) returns (GetStudentPaymentResponse) {}
+    rpc GetList(GetListStudentPaymentRequest) returns (GetListStudentPaymentResponse) {}
+    rpc Create(CreateStudentPaymentRequest) returns (StudentPaymentResponse) {}
+    rpc Update(UpdateStudentPaymentRequest) returns (GetStudentPaymentResponse) {}
+    rpc Delete(StudentPaymentID) returns (StudentPaymentEmpty) {}
+}
+
+message StudentPayment {
+    string id = 1;
+    string studentId = 2;
+    string groupId = 3;
+    double paidSum = 4;
+    string administrationId = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message StudentPaymentEmpty {
+    string msg = 1;
+}
+
+message StudentPaymentID {
+    string id = 1;
+}
+
+message CreateStudentPaymentRequest {
+    string studentId = 1;
+    string groupId = 2;
+    double paidSum = 3;
+    string administrationId = 4;
+}
+
+message StudentPaymentResponse {
+    string id = 1;
+    string studentId = 2;
+    string groupId = 3;
+    double paidSum = 4;
+    string administrationId = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message UpdateStudentPaymentRequest {
+    string id = 1;
+    string studentId = 2;
+    string groupId = 3;
+    double paidSum = 4;
+    string administrationId = 5;
+}
+
+message GetStudentPaymentResponse {
+    string id = 1;
+    string studentId = 2;
+    string groupId = 3;
+    double paidSum = 4;
+    string administrationId = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message GetListStudentPaymentRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListStudentPaymentResponse {
+    int64 count = 1;
+    repeated GetStudentPaymentResponse student_payments = 2;
+}
+
+

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service BranchService {
+    rpc GetByID(BranchID) returns (GetBranchResponse) {}
+    rpc GetList(GetListBranchRequest) returns (GetListBranchResponse) {}
+    rpc Create(CreateBranchRequest) returns (BranchResponse) {}
+    rpc Update(UpdateBranchRequest) returns (GetBranchResponse) {}
+    rpc Delete(BranchID) returns (BranchEmpty) {}
+}
+
+message Branch {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string phone = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message BranchEmpty {
+    string msg = 1;
+}
+
+message BranchID {
+    string id = 1;
+}
+
+message CreateBranchRequest {
+    string name = 1;
+    string address = 2;
+    string phone = 3;
+}
+
+message BranchResponse {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string phone = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message UpdateBranchRequest {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string phone = 4;
+}
+
+message GetBranchResponse {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string phone = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message GetListBranchRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListBranchResponse {
+    int64 count = 1;
+    repeated GetBranchResponse branches = 2;
+}

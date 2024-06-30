@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+option go_package = "genproto/user_service";
+
+package user_service;
+
+service AdministrationService {
+    rpc Create(CreateAdministrationRequest) returns (AdministrationResponse) {}
+    rpc GetByID(AdministrationID) returns (GetAdministrationResponse) {}
+    rpc GetList(GetListAdministrationRequest) returns (GetListAdministrationResponse) {}
+    rpc Update(UpdateAdministrationRequest) returns (GetAdministrationResponse) {}
+    rpc Delete(AdministrationID) returns (AdministrationEmpty) {}
+    rpc GetReportList(GetReportListAdministrationRequest) returns (GetReportListAdministrationResponse) {}
+}
+
+message AdministrationEmpty {
+    string msg =1;
+}
+
+message AdministrationID {
+    string id = 1;
+}
+
+message CreateAdministrationRequest {
+    string fullname = 1;
+    string phone = 2;
+    string password = 3;
+    int64 salary = 4;
+    float ielts_score = 5;
+    string branch_id = 6;
+}
+
+message AdministrationResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    int64 salary = 6;
+    float ielts_score = 7;
+    string branch_id = 8;
+    string password =9;
+}
+
+message UpdateAdministrationRequest {
+    string id = 1;
+    string fullname = 2;
+    string phone = 3;
+    int64 salary = 4;
+    float ielts_score = 5;
+    string branch_id = 6;
+    string password =7;
+}
+
+message GetAdministrationResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    int64 salary = 5;
+    float ielts_score = 6;
+    string branch_id = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string deleted_at = 10;
+    string password =11;
+}
+
+message GetListAdministrationRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+message GetReportListAdministrationRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListAdministrationResponse {
+    int64 count = 1;
+    repeated GetAdministrationResponse Getadministrations = 2;
+}
+
+message GetReportListAdministrationResponse {
+    int64 count = 1;
+    repeated GetReportAdministrationResponse Getadministrations = 2;
+}
+
+
+message GetReportAdministrationResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    int64 salary = 5;
+    float ielts_score = 6;
+    string branch_id = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string deleted_at = 10;
+    string password =11;
+    string totalsum=12;
+}

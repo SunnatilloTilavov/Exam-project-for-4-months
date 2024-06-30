@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+option go_package = "genproto/user_service";
+
+package user_service;
+
+service ManagerService {
+    rpc Create(CreateManagerRequest) returns (ManagerResponse) {}
+    rpc GetByID(ManagerID) returns (GetManagerResponse) {}
+    rpc GetList(GetListManagerRequest) returns (GetListManagerResponse) {}
+    rpc Update(UpdateManagerRequest) returns (GetManagerResponse) {}
+    rpc Delete(ManagerID) returns (ManagerEmpty) {}  // Updated return type to ManagerEmpty
+}
+
+
+message ManagerID {
+    string id = 1;
+}
+
+message ManagerEmpty {
+    string msg =1;
+} 
+
+message CreateManagerRequest {
+    string fullname = 1;
+    string phone = 2;
+    string password = 3;
+    double salary = 4;
+    string branch_id = 5;
+}
+
+message ManagerResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    double salary = 5;
+    string branch_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+    string password= 10;
+}
+
+message UpdateManagerRequest {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    string password = 5;
+    double salary = 6;
+    string branch_id = 7;
+}
+
+message GetManagerResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    double salary = 5;
+    string branch_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+    string password = 10;
+}
+
+message GetListManagerRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListManagerResponse {
+    int64 Count = 1;
+    repeated GetManagerResponse managers = 2;
+}

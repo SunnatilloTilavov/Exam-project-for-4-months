@@ -1,0 +1,4174 @@
+definitions:
+  education_management_service.BranchEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.BranchResponse:
+    properties:
+      address:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.CreateBranchRequest:
+    properties:
+      address:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  education_management_service.CreateEventRequest:
+    properties:
+      assignStudent:
+        type: string
+      branchId:
+        type: string
+      date:
+        type: string
+      startTime:
+        type: string
+      topic:
+        type: string
+    type: object
+  education_management_service.CreateEventStudentRequest:
+    properties:
+      eventId:
+        type: string
+      studentId:
+        type: string
+    type: object
+  education_management_service.CreateGroupRequest:
+    properties:
+      branchId:
+        type: string
+      name:
+        type: string
+      supportTeacherId:
+        type: string
+      teacherId:
+        type: string
+      type:
+        type: string
+    type: object
+  education_management_service.CreateJurnalRequest:
+    properties:
+      fromDate:
+        type: string
+      groupId:
+        type: string
+      studentsCount:
+        type: integer
+      toDate:
+        type: string
+    type: object
+  education_management_service.CreateScheduleRequest:
+    properties:
+      date:
+        type: string
+      endTime:
+        type: string
+      journalId:
+        type: string
+      lesson:
+        type: string
+      startTime:
+        type: string
+    type: object
+  education_management_service.CreateStudentPaymentRequest:
+    properties:
+      administrationId:
+        type: string
+      groupId:
+        type: string
+      paidSum:
+        type: number
+      studentId:
+        type: string
+    type: object
+  education_management_service.CreateStudentTaskRequest:
+    properties:
+      score:
+        type: integer
+      studentId:
+        type: string
+      taskId:
+        type: string
+    type: object
+  education_management_service.CreateTaskRequest:
+    properties:
+      deadlineDate:
+        type: string
+      deadlineTime:
+        type: string
+      label:
+        type: string
+      scheduleId:
+        type: string
+      score:
+        type: integer
+    type: object
+  education_management_service.EventEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.EventResponse:
+    properties:
+      assignStudent:
+        type: string
+      branchId:
+        type: string
+      created_at:
+        type: string
+      date:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      startTime:
+        type: string
+      topic:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.EventStudentEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.EventStudentResponse:
+    properties:
+      assignStudent:
+        description: Define the missing fields here
+        type: string
+      branchId:
+        type: string
+      created_at:
+        type: string
+      date:
+        type: string
+      deleted_at:
+        type: string
+      eventId:
+        type: string
+      id:
+        type: string
+      startTime:
+        type: string
+      studentId:
+        type: string
+      topic:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetBranchResponse:
+    properties:
+      address:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetEventResponse:
+    properties:
+      assignStudent:
+        type: string
+      branchId:
+        type: string
+      created_at:
+        type: string
+      date:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      startTime:
+        type: string
+      topic:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetEventStudentResponse:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      eventId:
+        type: string
+      id:
+        type: string
+      studentId:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetGroupResponse:
+    properties:
+      branchId:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      supportTeacherId:
+        type: string
+      teacherId:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetJurnalResponse:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fromDate:
+        type: string
+      groupId:
+        type: string
+      id:
+        type: string
+      studentsCount:
+        type: integer
+      toDate:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetListBranchResponse:
+    properties:
+      branches:
+        items:
+          $ref: '#/definitions/education_management_service.GetBranchResponse'
+        type: array
+      count:
+        type: integer
+    type: object
+  education_management_service.GetListEventResponse:
+    properties:
+      count:
+        type: integer
+      events:
+        items:
+          $ref: '#/definitions/education_management_service.GetEventResponse'
+        type: array
+    type: object
+  education_management_service.GetListEventStudentResponse:
+    properties:
+      count:
+        type: integer
+      event_students:
+        items:
+          $ref: '#/definitions/education_management_service.GetEventStudentResponse'
+        type: array
+    type: object
+  education_management_service.GetListGroupResponse:
+    properties:
+      count:
+        type: integer
+      groups:
+        items:
+          $ref: '#/definitions/education_management_service.GetGroupResponse'
+        type: array
+    type: object
+  education_management_service.GetListJurnalResponse:
+    properties:
+      Jurnals:
+        items:
+          $ref: '#/definitions/education_management_service.GetJurnalResponse'
+        type: array
+      count:
+        type: integer
+    type: object
+  education_management_service.GetListScheduleResponse:
+    properties:
+      count:
+        type: integer
+      schedules:
+        items:
+          $ref: '#/definitions/education_management_service.GetScheduleResponse'
+        type: array
+    type: object
+  education_management_service.GetListStudentPaymentResponse:
+    properties:
+      count:
+        type: integer
+      student_payments:
+        items:
+          $ref: '#/definitions/education_management_service.GetStudentPaymentResponse'
+        type: array
+    type: object
+  education_management_service.GetListStudentTaskResponse:
+    properties:
+      count:
+        type: integer
+      student_tasks:
+        items:
+          $ref: '#/definitions/education_management_service.GetStudentTaskResponse'
+        type: array
+    type: object
+  education_management_service.GetListTaskResponse:
+    properties:
+      count:
+        type: integer
+      tasks:
+        items:
+          $ref: '#/definitions/education_management_service.GetTaskResponse'
+        type: array
+    type: object
+  education_management_service.GetScheduleResponse:
+    properties:
+      created_at:
+        type: string
+      date:
+        type: string
+      deleted_at:
+        type: string
+      endTime:
+        type: string
+      id:
+        type: string
+      journalId:
+        type: string
+      lesson:
+        type: string
+      startTime:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetStudentPaymentResponse:
+    properties:
+      administrationId:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      groupId:
+        type: string
+      id:
+        type: string
+      paidSum:
+        type: number
+      studentId:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetStudentTaskResponse:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      score:
+        type: integer
+      studentId:
+        type: string
+      taskId:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GetStudentWithEventsResponse:
+    properties:
+      email:
+        type: string
+      events:
+        items:
+          $ref: '#/definitions/education_management_service.EventStudentResponse'
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  education_management_service.GetTaskResponse:
+    properties:
+      created_at:
+        type: string
+      deadlineDate:
+        type: string
+      deadlineTime:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      label:
+        type: string
+      scheduleId:
+        type: string
+      score:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  education_management_service.GroupEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.GroupResponse:
+    properties:
+      branchId:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      supportTeacherId:
+        type: string
+      teacherId:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.JurnalEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.JurnalResponse:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fromDate:
+        type: string
+      groupId:
+        type: string
+      id:
+        type: string
+      studentsCount:
+        type: integer
+      toDate:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.ScheduleEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.ScheduleResponse:
+    properties:
+      created_at:
+        type: string
+      date:
+        type: string
+      deleted_at:
+        type: string
+      endTime:
+        type: string
+      id:
+        type: string
+      journalId:
+        type: string
+      lesson:
+        type: string
+      startTime:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.StudentPaymentEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.StudentPaymentResponse:
+    properties:
+      administrationId:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      groupId:
+        type: string
+      id:
+        type: string
+      paidSum:
+        type: number
+      studentId:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.StudentTaskEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.StudentTaskResponse:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      score:
+        type: integer
+      studentId:
+        type: string
+      taskId:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  education_management_service.TaskEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  education_management_service.TaskResponse:
+    properties:
+      created_at:
+        type: string
+      deadlineDate:
+        type: string
+      deadlineTime:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      label:
+        type: string
+      scheduleId:
+        type: string
+      score:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  education_management_service.UpdateBranchRequest:
+    properties:
+      address:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  education_management_service.UpdateEventRequest:
+    properties:
+      assignStudent:
+        type: string
+      branchId:
+        type: string
+      date:
+        type: string
+      id:
+        type: string
+      startTime:
+        type: string
+      topic:
+        type: string
+    type: object
+  education_management_service.UpdateEventStudentRequest:
+    properties:
+      eventId:
+        type: string
+      id:
+        type: string
+      studentId:
+        type: string
+    type: object
+  education_management_service.UpdateGroupRequest:
+    properties:
+      branchId:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      supportTeacherId:
+        type: string
+      teacherId:
+        type: string
+      type:
+        type: string
+    type: object
+  education_management_service.UpdateJurnalRequest:
+    properties:
+      fromDate:
+        type: string
+      groupId:
+        type: string
+      id:
+        type: string
+      studentsCount:
+        type: integer
+      toDate:
+        type: string
+    type: object
+  education_management_service.UpdateScheduleRequest:
+    properties:
+      date:
+        type: string
+      endTime:
+        type: string
+      id:
+        type: string
+      journalId:
+        type: string
+      lesson:
+        type: string
+      startTime:
+        type: string
+    type: object
+  education_management_service.UpdateStudentPaymentRequest:
+    properties:
+      administrationId:
+        type: string
+      groupId:
+        type: string
+      id:
+        type: string
+      paidSum:
+        type: number
+      studentId:
+        type: string
+    type: object
+  education_management_service.UpdateStudentScoreRequest:
+    properties:
+      id:
+        type: string
+      score:
+        type: integer
+    type: object
+  education_management_service.UpdateStudentTaskRequest:
+    properties:
+      id:
+        type: string
+      score:
+        type: integer
+      studentId:
+        type: string
+      taskId:
+        type: string
+    type: object
+  education_management_service.UpdateTaskRequest:
+    properties:
+      deadlineDate:
+        type: string
+      deadlineTime:
+        type: string
+      id:
+        type: string
+      label:
+        type: string
+      scheduleId:
+        type: string
+      score:
+        type: integer
+    type: object
+  models.ResponseError:
+    properties:
+      error: {}
+    type: object
+  user_service.AdministrationEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  user_service.AdministrationResponse:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+    type: object
+  user_service.CreateAdministrationRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      ielts_score:
+        type: number
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+    type: object
+  user_service.CreateManagerRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: number
+    type: object
+  user_service.CreateStudentRequest:
+    properties:
+      branchId:
+        type: string
+      fullname:
+        type: string
+      groupName:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  user_service.CreateSupportTeacherRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+    type: object
+  user_service.CreateTeacherRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      support_teacher_id:
+        type: string
+    type: object
+  user_service.GetAdministrationResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  user_service.GetListAdministrationResponse:
+    properties:
+      Getadministrations:
+        items:
+          $ref: '#/definitions/user_service.GetAdministrationResponse'
+        type: array
+      count:
+        type: integer
+    type: object
+  user_service.GetListManagerResponse:
+    properties:
+      Count:
+        type: integer
+      managers:
+        items:
+          $ref: '#/definitions/user_service.GetManagerResponse'
+        type: array
+    type: object
+  user_service.GetListStudentResponse:
+    properties:
+      Count:
+        type: integer
+      students:
+        items:
+          $ref: '#/definitions/user_service.GetStudentResponse'
+        type: array
+    type: object
+  user_service.GetListSupportTeacherResponse:
+    properties:
+      Count:
+        type: integer
+      GetSupportTeachers:
+        items:
+          $ref: '#/definitions/user_service.GetSupportTeacherResponse'
+        type: array
+    type: object
+  user_service.GetListTeacherResponse:
+    properties:
+      Count:
+        type: integer
+      GetTeacherResponse:
+        items:
+          $ref: '#/definitions/user_service.GetTeacherResponse'
+        type: array
+    type: object
+  user_service.GetManagerResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  user_service.GetReportAdministrationResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      totalsum:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  user_service.GetReportListAdministrationResponse:
+    properties:
+      Getadministrations:
+        items:
+          $ref: '#/definitions/user_service.GetReportAdministrationResponse'
+        type: array
+      count:
+        type: integer
+    type: object
+  user_service.GetReportListTeacherResponse:
+    properties:
+      Count:
+        type: integer
+      GetTeacherResponse:
+        items:
+          $ref: '#/definitions/user_service.GetReportTeacherResponse'
+        type: array
+    type: object
+  user_service.GetReportTeacherResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      support_teacher_id:
+        type: string
+      totalsum:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  user_service.GetStudentResponse:
+    properties:
+      branchId:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      groupName:
+        type: string
+      id:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  user_service.GetSupportTeacherResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  user_service.GetTeacherResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      support_teacher_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  user_service.LoginPasswors:
+    properties:
+      login:
+        type: string
+      password:
+        type: string
+    type: object
+  user_service.ManagerEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  user_service.ManagerResponse:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  user_service.StudentEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  user_service.StudentResponse:
+    properties:
+      branchId:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      fullname:
+        type: string
+      groupName:
+        type: string
+      id:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  user_service.SupportTeacherEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  user_service.SupportTeacherResponse:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+    type: object
+  user_service.TeacherEmpty:
+    properties:
+      msg:
+        type: string
+    type: object
+  user_service.TeacherResponse:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      support_teacher_id:
+        type: string
+    type: object
+  user_service.Token:
+    properties:
+      AccessToken:
+        type: string
+      RefreshToken:
+        type: string
+    type: object
+  user_service.UpdateAdministrationRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_score:
+        type: number
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+    type: object
+  user_service.UpdateManagerRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: number
+    type: object
+  user_service.UpdateStudentRequest:
+    properties:
+      branchId:
+        type: string
+      fullname:
+        type: string
+      groupName:
+        type: string
+      id:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  user_service.UpdateSupportTeacherRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+    type: object
+  user_service.UpdateTeacherRequest:
+    properties:
+      branch_id:
+        type: string
+      fullname:
+        type: string
+      id:
+        type: string
+      ielts_attempt_count:
+        type: integer
+      ielts_score:
+        type: number
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      salary:
+        type: integer
+      support_teacher_id:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /administration/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting an administration by ID
+      parameters:
+      - description: administration ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.AdministrationEmpty'
+        "404":
+          description: Administration not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete an administration by ID
+      tags:
+      - administration
+    get:
+      consumes:
+      - application/json
+      description: API for getting a single administration by ID
+      parameters:
+      - description: administration ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetAdministrationResponse'
+        "404":
+          description: Administration not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a single administration by ID
+      tags:
+      - administration
+    put:
+      consumes:
+      - application/json
+      description: API for updating an administration by ID
+      parameters:
+      - description: administration ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Administration
+        in: body
+        name: administration
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.UpdateAdministrationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetAdministrationResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Administration not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update an administration by ID
+      tags:
+      - administration
+  /administration/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of administrations
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListAdministrationResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Administrations
+      tags:
+      - administration
+  /administration/report/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of administrations
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetReportListAdministrationResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Administrations
+      tags:
+      - Report
+  /api/v1/groups:
+    get:
+      description: Get a list of Group entries with pagination and search
+      parameters:
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Search query
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListGroupResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a list of Groups
+      tags:
+      - Group
+    post:
+      consumes:
+      - application/json
+      description: Create a new Group entry
+      parameters:
+      - description: Group creation request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GroupResponse'
+      summary: Create a new Group
+      tags:
+      - Group
+  /api/v1/groups/{id}:
+    delete:
+      description: Delete a Group entry by its ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GroupEmpty'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Delete a Group by ID
+      tags:
+      - Group
+    get:
+      description: Get a Group entry by its ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetGroupResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a Group by ID
+      tags:
+      - Group
+    put:
+      consumes:
+      - application/json
+      description: Update a Group entry by its ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Group update request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetGroupResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Update a Group by ID
+      tags:
+      - Group
+  /api/v1/groups/teacher/{id}:
+    get:
+      description: Get Groups associated with a Teacher by Teacher ID
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListGroupResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get Groups by Teacher ID
+      tags:
+      - Group
+  /api/v1/jurnals:
+    get:
+      description: Get a list of Jurnal entries with pagination and search
+      parameters:
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Search query
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListJurnalResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a list of Jurnals
+      tags:
+      - Jurnal
+    post:
+      consumes:
+      - application/json
+      description: Create a new Jurnal entry
+      parameters:
+      - description: Jurnal creation request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateJurnalRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.JurnalResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Create a new Jurnal
+      tags:
+      - Jurnal
+  /api/v1/jurnals/{id}:
+    delete:
+      description: Delete a Jurnal entry by its ID
+      parameters:
+      - description: Jurnal ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.JurnalEmpty'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Delete a Jurnal by ID
+      tags:
+      - Jurnal
+    get:
+      description: Get a Jurnal entry by its ID
+      parameters:
+      - description: Jurnal ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetJurnalResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a Jurnal by ID
+      tags:
+      - Jurnal
+    put:
+      consumes:
+      - application/json
+      description: Update a Jurnal entry by its ID
+      parameters:
+      - description: Jurnal ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Jurnal update request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateJurnalRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetJurnalResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Update a Jurnal by ID
+      tags:
+      - Jurnal
+  /api/v1/jurnals/student/{id}:
+    get:
+      description: Get a Jurnal entry by Student Group ID
+      parameters:
+      - description: Student Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetJurnalResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a Jurnal by Student Group ID
+      tags:
+      - Jurnal
+  /api/v1/schedules:
+    get:
+      description: Get a list of Schedule entries with pagination and search
+      parameters:
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Search query
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListScheduleResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a list of Schedules
+      tags:
+      - Schedule
+    post:
+      consumes:
+      - application/json
+      description: Create a new Schedule entry
+      parameters:
+      - description: Schedule creation request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateScheduleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.ScheduleResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Create a new Schedule
+      tags:
+      - Schedule
+  /api/v1/schedules/{id}:
+    delete:
+      description: Delete a Schedule entry by its ID
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.ScheduleEmpty'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Delete a Schedule by ID
+      tags:
+      - Schedule
+    get:
+      description: Get a Schedule entry by its ID
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetScheduleResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get a Schedule by ID
+      tags:
+      - Schedule
+    put:
+      consumes:
+      - application/json
+      description: Update a Schedule entry by its ID
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Schedule update request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateScheduleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetScheduleResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Update a Schedule by ID
+      tags:
+      - Schedule
+  /branch/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a branch by ID
+      parameters:
+      - description: branch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.BranchEmpty'
+        "404":
+          description: Branch not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a branch by ID
+      tags:
+      - branch
+    get:
+      consumes:
+      - application/json
+      description: API for getting a single branch by ID
+      parameters:
+      - description: branch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetBranchResponse'
+        "404":
+          description: Branch not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a single branch by ID
+      tags:
+      - branch
+    put:
+      consumes:
+      - application/json
+      description: API for updating a branch by ID
+      parameters:
+      - description: branch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Branch
+        in: body
+        name: branch
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateBranchRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetBranchResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Branch not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a branch by ID
+      tags:
+      - branch
+  /branch/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of branches
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListBranchResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Branches
+      tags:
+      - branch
+  /create/administration:
+    post:
+      consumes:
+      - application/json
+      description: API for creating an administration
+      parameters:
+      - description: Administration
+        in: body
+        name: administration
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.CreateAdministrationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.AdministrationResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create administration
+      tags:
+      - administration
+  /create/branch:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a branch
+      parameters:
+      - description: Branch
+        in: body
+        name: branch
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateBranchRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.BranchResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create branch
+      tags:
+      - branch
+  /create/event:
+    post:
+      consumes:
+      - application/json
+      description: API for creating an event
+      parameters:
+      - description: Event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateEventRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.EventResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create event
+      tags:
+      - event
+  /create/event_student:
+    post:
+      consumes:
+      - application/json
+      description: API for creating an event student
+      parameters:
+      - description: Event Student
+        in: body
+        name: event_student
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateEventStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.EventStudentResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create event student
+      tags:
+      - event_student
+  /create/manager:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a manager
+      parameters:
+      - description: Manager
+        in: body
+        name: manager
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.CreateManagerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.ManagerResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create manager
+      tags:
+      - manager
+  /create/student:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a student
+      parameters:
+      - description: Student
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.CreateStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.StudentResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create student
+      tags:
+      - student
+  /create/student_payment:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a student payment
+      parameters:
+      - description: Student Payment
+        in: body
+        name: student_payment
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateStudentPaymentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.StudentPaymentResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create student payment
+      tags:
+      - student_payment
+  /create/student_task:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a student task
+      parameters:
+      - description: Student Task
+        in: body
+        name: student_task
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateStudentTaskRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.StudentTaskResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Create student task
+      tags:
+      - student_task
+  /create/supportteacher:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a support teacher
+      parameters:
+      - description: Support Teacher
+        in: body
+        name: support_teacher
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.CreateSupportTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.SupportTeacherResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create support teacher
+      tags:
+      - support_teacher
+  /create/task:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a task
+      parameters:
+      - description: Task
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.CreateTaskRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.TaskResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create task
+      tags:
+      - task
+  /create/teacher:
+    post:
+      consumes:
+      - application/json
+      description: API for creating a teacher
+      parameters:
+      - description: Teacher
+        in: body
+        name: teacher
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.CreateTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.TeacherResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Create teacher
+      tags:
+      - teacher
+  /event/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting an event by ID
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.EventEmpty'
+        "404":
+          description: Event not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete event by ID
+      tags:
+      - event
+    get:
+      consumes:
+      - application/json
+      description: API for getting an event by ID
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetEventResponse'
+        "404":
+          description: Event not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get event by ID
+      tags:
+      - event
+    put:
+      consumes:
+      - application/json
+      description: API for updating an event by ID
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateEventRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetEventResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Event not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update event by ID
+      tags:
+      - event
+  /event/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of events
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListEventResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of events
+      tags:
+      - event
+  /event_student/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting an event student by ID
+      parameters:
+      - description: Event Student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.EventStudentEmpty'
+        "404":
+          description: Event Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete event student by ID
+      tags:
+      - event_student
+    get:
+      consumes:
+      - application/json
+      description: API for getting an event student by ID
+      parameters:
+      - description: Event Student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetEventStudentResponse'
+        "404":
+          description: Event Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get event student by ID
+      tags:
+      - event_student
+    put:
+      consumes:
+      - application/json
+      description: API for updating an event student by ID
+      parameters:
+      - description: Event Student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Event Student
+        in: body
+        name: event_student
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateEventStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetEventStudentResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Event Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update event student by ID
+      tags:
+      - event_student
+  /event_student/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of event students
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListEventStudentResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of event students
+      tags:
+      - event_student
+  /event_student/student/{id}:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a student with their events by student ID
+      parameters:
+      - description: Student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentWithEventsResponse'
+        "404":
+          description: Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get student with events by student ID
+      tags:
+      - event_student
+  /login/admin:
+    post:
+      consumes:
+      - application/json
+      description: API for admin login
+      parameters:
+      - description: Admin credentials
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.LoginPasswors'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.Token'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Admin Login
+      tags:
+      - login
+  /login/manager:
+    post:
+      consumes:
+      - application/json
+      description: API for manager login
+      parameters:
+      - description: Manager credentials
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.LoginPasswors'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.Token'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Manager Login
+      tags:
+      - login
+  /login/student:
+    post:
+      consumes:
+      - application/json
+      description: API for student login
+      parameters:
+      - description: Student credentials
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.LoginPasswors'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.Token'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Student Login
+      tags:
+      - login
+  /login/superadmin:
+    post:
+      consumes:
+      - application/json
+      description: API for super admin login
+      parameters:
+      - description: Super Admin credentials
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.LoginPasswors'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.Token'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Super Admin Login
+      tags:
+      - login
+  /login/support-teacher:
+    post:
+      consumes:
+      - application/json
+      description: API for support teacher login
+      parameters:
+      - description: Support Teacher credentials
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.LoginPasswors'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.Token'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Support Teacher Login
+      tags:
+      - login
+  /login/teacher:
+    post:
+      consumes:
+      - application/json
+      description: API for teacher login
+      parameters:
+      - description: Teacher credentials
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.LoginPasswors'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.Token'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Teacher Login
+      tags:
+      - login
+  /manager/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a manager by ID
+      parameters:
+      - description: manager ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.ManagerEmpty'
+        "404":
+          description: Manager not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a manager by ID
+      tags:
+      - manager
+    get:
+      consumes:
+      - application/json
+      description: API for getting a single manager by ID
+      parameters:
+      - description: manager ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetManagerResponse'
+        "404":
+          description: Manager not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a single manager by ID
+      tags:
+      - manager
+    put:
+      consumes:
+      - application/json
+      description: API for updating a manager by ID
+      parameters:
+      - description: manager ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Manager
+        in: body
+        name: manager
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.UpdateManagerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetManagerResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Manager not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a manager by ID
+      tags:
+      - manager
+  /manager/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of managers
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListManagerResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Managers
+      tags:
+      - manager
+  /student/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a student by ID
+      parameters:
+      - description: student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.StudentEmpty'
+        "404":
+          description: Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a student by ID
+      tags:
+      - student
+    get:
+      consumes:
+      - application/json
+      description: API for getting a single student by ID
+      parameters:
+      - description: student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetStudentResponse'
+        "404":
+          description: Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a single student by ID
+      tags:
+      - student
+    put:
+      consumes:
+      - application/json
+      description: API for updating a student by ID
+      parameters:
+      - description: student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Student
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.UpdateStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetStudentResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Student not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a student by ID
+      tags:
+      - student
+  /student/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of students
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListStudentResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Students
+      tags:
+      - student
+  /student/report/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of students
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListStudentResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Students
+      tags:
+      - Report
+  /student_payment/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a student payment by ID
+      parameters:
+      - description: Student Payment ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.StudentPaymentEmpty'
+        "404":
+          description: Student Payment not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete student payment by ID
+      tags:
+      - student_payment
+    get:
+      consumes:
+      - application/json
+      description: API for getting a student payment by ID
+      parameters:
+      - description: Student Payment ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentPaymentResponse'
+        "404":
+          description: Student Payment not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get student payment by ID
+      tags:
+      - student_payment
+    put:
+      consumes:
+      - application/json
+      description: API for updating a student payment by ID
+      parameters:
+      - description: Student Payment ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Student Payment
+        in: body
+        name: student_payment
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateStudentPaymentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentPaymentResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Student Payment not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update student payment by ID
+      tags:
+      - student_payment
+  /student_payment/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of student payments
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListStudentPaymentResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of student payments
+      tags:
+      - student_payment
+  /student_task/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a student task by ID
+      parameters:
+      - description: Student Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.StudentTaskEmpty'
+        "404":
+          description: Student Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Delete student task by ID
+      tags:
+      - student_task
+    get:
+      consumes:
+      - application/json
+      description: API for getting a student task by ID
+      parameters:
+      - description: Student Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentTaskResponse'
+        "404":
+          description: Student Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get student task by ID
+      tags:
+      - student_task
+    put:
+      consumes:
+      - application/json
+      description: API for updating a student task by ID
+      parameters:
+      - description: Student Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Student Task
+        in: body
+        name: student_task
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateStudentTaskRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentTaskResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Student Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Update student task by ID
+      tags:
+      - student_task
+  /student_task/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of student tasks
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListStudentTaskResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get list of student tasks
+      tags:
+      - student_task
+  /student_task/score/student/{id}:
+    put:
+      consumes:
+      - application/json
+      description: API for updating a student task score for a student
+      parameters:
+      - description: Student Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Student Task Score
+        in: body
+        name: score
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateStudentScoreRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentTaskResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Student Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Update student task score for student
+      tags:
+      - student_task
+  /student_task/score/teacher/{id}:
+    put:
+      consumes:
+      - application/json
+      description: API for updating a student task score for a teacher
+      parameters:
+      - description: Student Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Student Task Score
+        in: body
+        name: score
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateStudentScoreRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentTaskResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Student Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Update student task score for teacher
+      tags:
+      - student_task
+  /student_task/student/{id}:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a student task by student ID
+      parameters:
+      - description: Student ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetStudentTaskResponse'
+        "404":
+          description: Student Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      summary: Get student task by student ID
+      tags:
+      - student_task
+  /supportteacher/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a support teacher by ID
+      parameters:
+      - description: support teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.SupportTeacherEmpty'
+        "404":
+          description: Support Teacher not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a support teacher by ID
+      tags:
+      - support_teacher
+    get:
+      consumes:
+      - application/json
+      description: API for getting a single support teacher by ID
+      parameters:
+      - description: support teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetSupportTeacherResponse'
+        "404":
+          description: Support Teacher not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a single support teacher by ID
+      tags:
+      - support_teacher
+    put:
+      consumes:
+      - application/json
+      description: API for updating a support teacher by ID
+      parameters:
+      - description: support teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Support Teacher
+        in: body
+        name: support_teacher
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.UpdateSupportTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetSupportTeacherResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Support Teacher not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a support teacher by ID
+      tags:
+      - support_teacher
+  /supportteacher/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of support teachers
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListSupportTeacherResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Support Teachers
+      tags:
+      - support_teacher
+  /supportteacher/report/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of support teachers
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListSupportTeacherResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Support Teachers
+      tags:
+      - Report
+  /task/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a task by ID
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.TaskEmpty'
+        "404":
+          description: Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete task by ID
+      tags:
+      - task
+    get:
+      consumes:
+      - application/json
+      description: API for getting a task by ID
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetTaskResponse'
+        "404":
+          description: Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get task by ID
+      tags:
+      - task
+    put:
+      consumes:
+      - application/json
+      description: API for updating a task by ID
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Task
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/education_management_service.UpdateTaskRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetTaskResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Task not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update task by ID
+      tags:
+      - task
+  /task/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of tasks
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/education_management_service.GetListTaskResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of tasks
+      tags:
+      - task
+  /teacher/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: API for deleting a teacher by ID
+      parameters:
+      - description: teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.TeacherEmpty'
+        "404":
+          description: Teacher not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a teacher by ID
+      tags:
+      - teacher
+    get:
+      consumes:
+      - application/json
+      description: API for getting a single teacher by ID
+      parameters:
+      - description: teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetTeacherResponse'
+        "404":
+          description: Teacher not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a single teacher by ID
+      tags:
+      - teacher
+    put:
+      consumes:
+      - application/json
+      description: API for updating a teacher by ID
+      parameters:
+      - description: teacher ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Teacher
+        in: body
+        name: teacher
+        required: true
+        schema:
+          $ref: '#/definitions/user_service.UpdateTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetTeacherResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "404":
+          description: Teacher not found
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a teacher by ID
+      tags:
+      - teacher
+  /teacher/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of teachers
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetListTeacherResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Teachers
+      tags:
+      - teacher
+  /teacher/report/list:
+    get:
+      consumes:
+      - application/json
+      description: API for getting a list of teachers
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        required: true
+        type: string
+      - description: Page
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_service.GetReportListTeacherResponse'
+        "400":
+          description: Invalid query parameters
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ResponseError'
+      security:
+      - ApiKeyAuth: []
+      summary: Get List of Teachers
+      tags:
+      - Report
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

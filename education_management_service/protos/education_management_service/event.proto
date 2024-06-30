@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service EventService {
+    rpc Create(CreateEventRequest) returns (EventResponse) {}
+    rpc GetByID(EventID) returns (GetEventResponse) {}
+    rpc GetList(GetListEventRequest) returns (GetListEventResponse) {}
+    rpc Update(UpdateEventRequest) returns (GetEventResponse) {}
+    rpc Delete(EventID) returns (EventEmpty) {}
+}
+
+message Event {
+    string id = 1;
+    string assignStudent = 2;
+    string topic = 3;
+    string startTime = 4;
+    string date = 5;
+    string branchId = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message EventEmpty {
+    string msg = 1;
+}
+
+message EventID {
+    string id = 1;
+}
+
+message CreateEventRequest {
+    string assignStudent = 1;
+    string topic = 2;
+    string startTime = 3;
+    string date = 4;
+    string branchId = 5;
+}
+
+message EventResponse {
+    string id = 1;
+    string assignStudent = 2;
+    string topic = 3;
+    string startTime = 4;
+    string date = 5;
+    string branchId = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message UpdateEventRequest {
+    string id = 1;
+    string assignStudent = 2;
+    string topic = 3;
+    string startTime = 4;
+    string date = 5;
+    string branchId = 6;
+}
+
+message GetEventResponse {
+    string id = 1;
+    string assignStudent = 2;
+    string topic = 3;
+    string startTime = 4;
+    string date = 5;
+    string branchId = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message GetListEventRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListEventResponse {
+    int64 count = 1;
+    repeated GetEventResponse events = 2;
+}

@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service EventStudentService {
+    rpc Create(CreateEventStudentRequest) returns (EventStudentResponse) {}
+    rpc GetByID(EventStudentID) returns (GetEventStudentResponse) {}
+    rpc GetList(GetListEventStudentRequest) returns (GetListEventStudentResponse) {}
+    rpc Update(UpdateEventStudentRequest) returns (GetEventStudentResponse) {}
+    rpc Delete(EventStudentID) returns (EventStudentEmpty) {}
+    rpc GetStudentByID(StudentID) returns (GetStudentWithEventsResponse) {}
+}
+
+message EventStudent {
+    string id = 1;
+    string eventId = 2;
+    string studentId = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+}
+
+message EventStudentEmpty {
+    string msg = 1;
+}
+
+message EventStudentID {
+    string id = 1;
+}
+
+message CreateEventStudentRequest {
+    string eventId = 1;
+    string studentId = 2;
+}
+
+message EventStudentResponse {
+    string id = 1;
+    string eventId = 2;
+    string studentId = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+    // Define the missing fields here
+    string assignStudent = 7;
+    string topic = 8;
+    string startTime = 9;
+    string date = 10;
+    string branchId = 11;
+}
+
+message UpdateEventStudentRequest {
+    string id = 1;
+    string eventId = 2;
+    string studentId = 3;
+}
+
+message GetEventStudentResponse {
+    string id = 1;
+    string eventId = 2;
+    string studentId = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+}
+
+message GetListEventStudentRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListEventStudentResponse {
+    int64 count = 1;
+    repeated GetEventStudentResponse event_students = 2;
+}
+
+message StudentID {
+    string id = 1;
+}
+
+message GetStudentWithEventsResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string phone = 4;
+    repeated EventStudentResponse events = 5;
+}
+
+message GetStudentWithEventsByIDRequest {
+    string student_id = 1;
+}
+
+message EventDetails {
+    string id = 1;
+    string assignStudent = 2;
+    string topic = 3;
+    string startTime = 4;
+    string date = 5;
+    string branchId = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}

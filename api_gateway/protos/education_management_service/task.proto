@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service TaskService {
+    rpc GetByID(TaskID) returns (GetTaskResponse) {}
+    rpc GetList(GetListTaskRequest) returns (GetListTaskResponse) {}
+    rpc Create(CreateTaskRequest) returns (TaskResponse) {}
+    rpc Update(UpdateTaskRequest) returns (GetTaskResponse) {}
+    rpc Delete(TaskID) returns (TaskEmpty) {}
+}
+
+message Task {
+    string id = 1;
+    string scheduleId = 2; // Corresponds to `scheduleId` in your SQL table
+    string label = 3;
+    string deadlineDate = 4;
+    string deadlineTime = 5;
+    int32 score = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message TaskEmpty {
+    string msg = 1;
+}
+
+message TaskID {
+    string id = 1;
+}
+
+message CreateTaskRequest {
+    string label = 1;
+    string scheduleId = 2;
+    string deadlineDate = 3;
+    string deadlineTime = 4;
+    int32 score = 5;
+}
+
+message TaskResponse {
+    string id = 1;
+    string scheduleId = 2;
+    string label = 3;
+    string deadlineDate = 4;
+    string deadlineTime = 5;
+    int32 score = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message UpdateTaskRequest {
+    string id = 1;
+    string label = 2;
+    string scheduleId = 3;
+    string deadlineDate = 4;
+    string deadlineTime = 5;
+    int32 score = 6;
+}
+
+message GetTaskResponse {
+    string id = 1;
+    string scheduleId = 2;
+    string label = 3;
+    string deadlineDate = 4;
+    string deadlineTime = 5;
+    int32 score = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message GetListTaskRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListTaskResponse {
+    int64 count = 1;
+    repeated GetTaskResponse tasks = 2;
+}

@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+option go_package = "genproto/education_management_service";
+
+package education_management_service;
+
+service StudentTaskService {
+    rpc GetByID(StudentTaskID) returns (GetStudentTaskResponse) {}
+    rpc GetList(GetListStudentTaskRequest) returns (GetListStudentTaskResponse) {}
+    rpc Create(CreateStudentTaskRequest) returns (StudentTaskResponse) {}
+    rpc Update(UpdateStudentTaskRequest) returns (GetStudentTaskResponse) {}
+    rpc Delete(StudentTaskID) returns (StudentTaskEmpty) {}
+    rpc GetByIDStudent(TaskStudentID) returns (GetStudentTaskResponse) {}
+    
+    rpc UpdateScoreforTeacher(UpdateStudentScoreRequest) returns (GetStudentTaskResponse) {}
+    rpc UpdateScoreforStudent(UpdateStudentScoreRequest) returns (GetStudentTaskResponse) {}
+}
+
+message StudentTask {
+    string id = 1;
+    string taskId = 2;
+    string studentId = 3;
+    int32 score = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message StudentTaskEmpty {
+    string msg = 1;
+}
+
+message StudentTaskID {
+    string id = 1;
+}
+
+message TaskStudentID {
+    string id = 1;
+}
+
+
+message CreateStudentTaskRequest {
+    string taskId = 1;
+    string studentId = 2;
+    int32 score = 3;
+}
+
+message StudentTaskResponse {
+    string id = 1;
+    string taskId = 2;
+    string studentId = 3;
+    int32 score = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message UpdateStudentTaskRequest {
+    string id = 1;
+    string taskId = 2;
+    string studentId = 3;
+    int32 score = 4;
+}
+
+message UpdateStudentScoreRequest {
+    string id = 1;
+    int32 score = 2;
+}
+
+message GetStudentTaskResponse {
+    string id = 1;
+    string taskId = 2;
+    string studentId = 3;
+    int32 score = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message GetListStudentTaskRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListStudentTaskResponse {
+    int64 count = 1;
+    repeated GetStudentTaskResponse student_tasks = 2;
+}

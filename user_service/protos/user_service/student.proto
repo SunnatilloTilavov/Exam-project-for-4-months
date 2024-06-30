@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+option go_package = "genproto/user_service";
+
+package user_service;
+
+
+service StudentService {
+    rpc GetByID(StudentID) returns (GetStudentResponse) {}
+    rpc GetList(GetListStudentRequest) returns (GetListStudentResponse) {}
+    rpc Create(CreateStudentRequest) returns (StudentResponse) {}
+    rpc Update(UpdateStudentRequest) returns (GetStudentResponse) {}
+    rpc Delete(StudentID) returns (StudentEmpty) {}
+    rpc GetReportList(GetReportListStudentRequest) returns (GetReportListStudentResponse) {}
+}
+
+message Student {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    string password = 5;
+    int64 salary = 6;
+    float ielts_score = 7;
+    int32 ielts_attempt_count = 8;
+    string support_Student_id = 9;
+    string branch_id = 10;
+    string created_at = 11;
+    string updated_at = 12;
+}
+
+
+
+
+message StudentEmpty {
+    string msg = 1;
+}
+
+
+message StudentID {
+    string id = 1;
+}
+
+message CreateStudentRequest {
+    string fullname = 1;
+    string phone = 2;
+    string password = 3;
+    string groupName = 4;
+    string branchId = 5;
+}
+
+
+
+message StudentResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    string password = 5;
+    string groupName = 6;
+    string branchId = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string deleted_at = 10;
+}
+
+message UpdateStudentRequest {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    string password = 5;
+    string groupName = 6;
+    string branchId = 7;
+}
+
+
+
+message GetStudentResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    string password = 5;
+    string groupName = 6;
+    string branchId = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string deleted_at = 10;
+}
+
+
+
+
+message GetListStudentRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetReportListStudentRequest {
+    int64 page = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+
+message GetListStudentResponse {
+    int64 Count = 1;
+    repeated GetStudentResponse students = 2;
+}
+
+message GetReportListStudentResponse {
+    int64 Count = 1;
+    repeated GetReportStudentResponse students = 2;
+}
+
+message GetReportStudentResponse {
+    string id = 1;
+    string login = 2;
+    string fullname = 3;
+    string phone = 4;
+    string password = 5;
+    string groupName = 6;
+    string branchId = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string deleted_at = 10;
+    string paidsum=11;
+}
+
